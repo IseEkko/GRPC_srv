@@ -19,6 +19,7 @@ func InitDB() {
 	/**
 	进行日志配置，这里配置可以让他打印出sql
 	*/
+	fmt.Println(dsn)
 	newLogger := logger.New(
 		log.New(os.Stdout, "\r\n", log.LstdFlags), // io writer（日志输出的目标，前缀和日志包含的内容——译者注）
 		logger.Config{

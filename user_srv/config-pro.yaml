@@ -1,10 +1,7 @@
-name: 'user-srv'
-mysql:
-  host: '120.55.71.155'
-  port: 3306
-  user: 'mxshop'
-  password: '123456'
-  db: 'mxshop'
-consul:
-  host: '127.0.0.1'
-  port: 8500
+host: '127.0.0.1'
+port: 8848
+namespace: '43627a4c-b1dc-4f20-86e0-a70a640f75cc'
+user: 'nacos'
+password: 'nacos'
+dataid: 'user_srv'
+group: 'DEFAULT_GROUP'

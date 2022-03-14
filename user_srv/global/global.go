@@ -17,6 +17,7 @@ func ginMd5(code string) string {
 var (
 	DB           *gorm.DB
 	ServerConfig config.ServerConfig
+	NacosConfig  *config.NacosConfig = &config.NacosConfig{}
 )
 
 //func init() {

@@ -35,7 +35,6 @@ func main() {
 	}
 
 	zap.S().Info("ip:", *IP, "   port:", *Port)
-
 	server := grpc.NewServer()
 	proto.RegisterUserServer(server, &handler.UserServer{})
 	lis, err := net.Listen("tcp", fmt.Sprintf("%s:%d", *IP, *Port))
@@ -54,9 +53,10 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 	//生成对应的检查对象
 	check := &api.AgentServiceCheck{
-		GRPC:                           fmt.Sprintf("192.168.4.3:%d", *Port),
+		GRPC:                           fmt.Sprintf("127.0.0.1:%d", *Port),
 		Timeout:                        "5s",
 		Interval:                       "5s",
 		DeregisterCriticalServiceAfter: "10s",
@@ -70,7 +70,7 @@ func main() {
 	registration.ID = serviceId
 	registration.Port = *Port
 	registration.Tags = []string{"immoc", "bobby"}
-	registration.Address = "192.168.4.3"
+	registration.Address = "127.0.0.1"
 	registration.Check = check
 
 	err = client.Agent().ServiceRegister(registration)
